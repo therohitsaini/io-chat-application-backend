@@ -4,7 +4,7 @@ const { MessageModal } = require("../modal/messagesSchema")
 const userChatController = async (req, res) => {
     try {
         const { senderId, receiverId } = req.params;
-        console.log("SenderId:", senderId, "ReceiverId:", receiverId);
+        // console.log("SenderId:", senderId, "ReceiverId:", receiverId);
 
         // ✅ Validate ObjectIds
         if (!mongoose.Types.ObjectId.isValid(senderId) || !mongoose.Types.ObjectId.isValid(receiverId)) {
@@ -32,7 +32,7 @@ const userChatController = async (req, res) => {
             return res.status(404).send({ message: "No messages found between these users!" });
         }
 
-        console.log("Messages:", messages);
+        // console.log("Messages:", messages);
 
         return res.status(200).send({
             success: true,
